@@ -16,12 +16,12 @@ build:
 
 requirements:
   host:
-    - python >=3.6
     - pip
-  run:
     - python >=3.6
-    - hypothesis >=4.5.0
+  run:
+    - hypothesis >=4.50.4
     - jsonschema >=3.0.2
+    - python >=3.6
 
 test:
   imports:
@@ -30,9 +30,8 @@ test:
 about:
   home: https://github.com/Zac-HD/hypothesis-jsonschema
   license: MPL-2.0
-  license_family: Other
-  # TODO: Remove after https://github.com/Zac-HD/hypothesis-jsonschema/pull/21
-  license_file: mpl-2.0.txt
+  license_family: MOZILLA
+  license_file: LICENSE
   summary: 'Tools to generate test data from JSON schemata with Hypothesis'
   dev_url: https://github.com/Zac-HD/hypothesis-jsonschema
 
