@@ -1,5 +1,5 @@
 {% set name = "hypothesis-jsonschema" %}
-{% set version = "0.10.1" %}
+{% set version = "0.10.2" %}
 
 package:
   name: {{ name|lower }}
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
-  sha256: 519a6080fd431be17be2f137c3d7e41ebe1598727611e2d2115f740e5f13358f
+  sha256: e5d4d478deb80d6905be51877219f338af01ca0ab516bfce2c2ae8eb68ed6faa
 
 build:
   noarch: python
