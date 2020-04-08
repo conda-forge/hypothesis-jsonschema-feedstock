@@ -1,5 +1,5 @@
 {% set name = "hypothesis-jsonschema" %}
-{% set version = "0.11.1" %}
+{% set version = "0.12.0" %}
 
 package:
   name: {{ name|lower }}
@@ -7,12 +7,12 @@ package:
 
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
-  sha256: edba1cc3b5ec24b3ee85c2581a7c6a6257d21e5b86ba30074f8cda91c7ddaeeb
+  sha256: 7649b119f0de43554a5e9524c8feb61ec38ea0f8e7923e80ac1a1922d1141653
 
 build:
   noarch: python
   number: 0
-  script: "{{ PYTHON }} -m pip install . -vv"
+  script: {{ PYTHON }} -m pip install . -vv
 
 requirements:
   host:
@@ -32,7 +32,7 @@ about:
   license: MPL-2.0
   license_family: MOZILLA
   license_file: LICENSE
-  summary: 'Tools to generate test data from JSON schemata with Hypothesis'
+  summary: Tools to generate test data from JSON schemata with Hypothesis
   dev_url: https://github.com/Zac-HD/hypothesis-jsonschema
 
 extra:
