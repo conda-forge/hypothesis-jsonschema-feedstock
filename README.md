@@ -5,7 +5,7 @@ Home: https://github.com/Zac-HD/hypothesis-jsonschema
 
 Package license: MPL-2.0
 
-Feedstock license: BSD 3-Clause
+Feedstock license: BSD-3-Clause
 
 Summary: Tools to generate test data from JSON schemata with Hypothesis
 
