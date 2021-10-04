@@ -1,5 +1,5 @@
 {% set name = "hypothesis-jsonschema" %}
-{% set version = "0.20.1" %}
+{% set version = "0.21.0" %}
 
 package:
   name: {{ name|lower }}
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
-  sha256: a1db2461c8fbc59cb35aaa514a4cfba98ae13cc9ab4fa0da0eddbef74b774984
+  sha256: 0af2cdbd4f03253924e805095cd477fbd96a59bd1821fd2c744b74108a43fb48
 
 build:
   noarch: python
@@ -17,11 +17,11 @@ build:
 requirements:
   host:
     - pip
-    - python >=3.6
+    - python >=3.7
   run:
     - hypothesis >=5.3.0
-    - jsonschema >=3.0.2
-    - python >=3.6
+    - jsonschema >=4.0.0
+    - python >=3.7
 
 test:
   imports:
