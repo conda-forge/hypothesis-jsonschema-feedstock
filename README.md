@@ -1,11 +1,11 @@
-About hypothesis-jsonschema
-===========================
+About hypothesis-jsonschema-feedstock
+=====================================
+
+Feedstock license: [BSD-3-Clause](https://github.com/conda-forge/hypothesis-jsonschema-feedstock/blob/main/LICENSE.txt)
 
 Home: https://github.com/Zac-HD/hypothesis-jsonschema
 
 Package license: MPL-2.0
-
-Feedstock license: [BSD-3-Clause](https://github.com/conda-forge/hypothesis-jsonschema-feedstock/blob/main/LICENSE.txt)
 
 Summary: Tools to generate test data from JSON schemata with Hypothesis
 
