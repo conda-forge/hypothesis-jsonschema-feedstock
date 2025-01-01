@@ -5,26 +5,27 @@ package:
   version: {{ version }}
 
 source:
-  url: https://pypi.io/packages/source/h/hypothesis-jsonschema/hypothesis-jsonschema-{{ version }}.tar.gz
+  url: https://pypi.org/packages/source/h/hypothesis-jsonschema/hypothesis-jsonschema-{{ version }}.tar.gz
   sha256: f4ac032024342a4149a10253984f5a5736b82b3fe2afb0888f3834a31153f215
 
 build:
   noarch: python
-  number: 0
+  number: 1
   script: {{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
 
 requirements:
   host:
     - pip
-    - python >=3.8
+    - python {{ python_min }}
   run:
     - hypothesis >=6.84.3
     - jsonschema >=4.18.0
-    - python >=3.8
+    - python >={{ python_min }}
 
 test:
   requires:
     - pip
+    - python {{ python_min }}
   imports:
     - hypothesis_jsonschema
   commands:
