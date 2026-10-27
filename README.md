@@ -3,7 +3,7 @@ About hypothesis-jsonschema-feedstock
 
 Feedstock license: [BSD-3-Clause](https://github.com/conda-forge/hypothesis-jsonschema-feedstock/blob/main/LICENSE.txt)
 
-Home: https://pypi.org/project/hypothesis-jsonschema/
+Home: https://pypi.org/project/hypothesis-jsonschema
 
 Package license: MPL-2.0
 
