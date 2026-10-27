@@ -5,20 +5,30 @@ context:
   version: "0.23.2"
   hypothesis_min: "6.170.10"
   python_check_max: "3.15"
+  # test_from_schema.py:  expects many MB of JSON schema
+  # test_version.py:      only tests repo files
+  unlink_tests: test_from_schema.py test_version.py
+  # upstream doesn't tag, this file not in sdist
+  test_commit: fa38b03d8bb6f917ba749ef84ce1e4465d1e27cc
+  cov_fail_under: "91"
 
 package:
   name: hypothesis-jsonschema
   version: ${{ version }}
 
 source:
-  url: https://files.pythonhosted.org/packages/source/h/hypothesis-jsonschema/hypothesis_jsonschema-${{ version }}.tar.gz
-  sha256: 43a5f21c67f7cdccd6e3e0d1300cb5261bede6c046e3eff8a73c094b4afdf761
+  - url: https://files.pythonhosted.org/packages/source/h/hypothesis-jsonschema/hypothesis_jsonschema-${{ version }}.tar.gz
+    sha256: 43a5f21c67f7cdccd6e3e0d1300cb5261bede6c046e3eff8a73c094b4afdf761
+  - url: https://raw.githubusercontent.com/Zac-HD/hypothesis-jsonschema/${{ test_commit }}/tests/gen_schemas.py
+    sha256: 69d0e8d530a807968d90de0a900d9d301ef1a60d89ce0e5602bac30c8362fb2d
+    target_directory: tests
 
 build:
   number: 0
   noarch: python
   script:
     - ${{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation --disable-pip-version-check --check-build-dependencies
+    - ${{ PYTHON }} -c "import os; [os.unlink(f'tests/{p}') for p in '''${{ unlink_tests }}'''.split()]"
 
 requirements:
   host:
@@ -47,16 +57,19 @@ tests:
   - files:
       source:
         - tests/**
+      recipe:
+        - run_test.py
     requirements:
       run:
         - hypothesis ${{ hypothesis_min }}.*
+        - jsonschema-with-format
         - pip
         - pytest-cov
         - python ${{ python_min }}.*
     script:
-      - python -m pip check
+      - pip check
       - coverage run --source=hypothesis_jsonschema --branch -m pytest -vv --tb=long --color=yes
-      - coverage report --show-missing --skip-covered --fail-under=100
+      - coverage report --show-missing --skip-covered --fail-under=${{ cov_fail_under }}
 
 about:
   license: MPL-2.0
